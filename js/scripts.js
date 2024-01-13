@@ -1,9 +1,3 @@
-/* Template: Aria - Business HTML Landing Page Template
-   Author: Inovatik
-   Created: Jul 2019
-   Description: Custom JS file
-*/
-
 
 (function($) {
     "use strict"; 
@@ -366,3 +360,103 @@
     document.getElementById("date2").value = value;
 
 })(jQuery);
+
+
+ /* PASSAGE DES IMAGES DANS LE CONTENEUR */
+
+
+// Créer un tableau contenant les salles et leurs images
+var salles = [
+    {
+      id: "salle1",
+      images: ["images/Salle001.jpeg", "images/Salle002.jpeg", "images/Salle003.jpeg"]
+    },
+    {
+      id: "salle2",
+      images: ["images/Salle001.jpeg", "images/Salle002.jpeg", "images/Salle003.jpeg"]
+    },
+    {
+      id: "salle3",
+      images: ["images/Salle001.jpeg", "images/Salle002.jpeg", "images/Salle003.jpeg"]
+    },
+    {
+      id: "salle4",
+      images: ["images/Salle001.jpeg", "images/Salle002.jpeg", "images/Salle003.jpeg"]
+    },
+    {
+      id: "salle5",
+      images: ["images/Salle001.jpeg", "images/Salle002.jpeg", "images/Salle003.jpeg"]
+    },
+    {
+      id: "salle6",
+      images: ["images/Salle001.jpeg", "images/Salle002.jpeg", "images/Salle003.jpeg"]
+    }
+  ];
+  
+  // Créer une variable pour stocker l'index de l'image courante
+  var index = 0;
+  
+  // Créer une fonction qui va changer la source de l'image en fonction de l'id de la salle et de l'index
+  function changeImage(salle, index) {
+    // Trouver l'objet correspondant à la salle dans le tableau
+    var salleObj = salles.find(function(obj) {
+      return obj.id === salle;
+    });
+    // Sélectionner l'élément image correspondant à la salle
+    var image = document.querySelector(".img-fluid[data-salle='" + salle + "']");
+    // Changer la source de l'image avec l'URL correspondant à l'index
+    image.src = salleObj.images[index];
+  }
+  
+  // Créer une fonction qui va augmenter l'index et appeler la fonction changeImage
+  function nextImage(salle) {
+    index++;
+    // Si l'index dépasse la longueur du tableau, le remettre à zéro
+    if (index >= salles[0].images.length) {
+      index = 0;
+    }
+    changeImage(salle, index);
+  }
+  
+  // Créer une fonction qui va diminuer l'index et appeler la fonction changeImage
+  function previousImage(salle) {
+    index--;
+    // Si l'index devient négatif, le mettre à la dernière position du tableau
+    if (index < 0) {
+      index = salles[0].images.length - 1;
+    }
+    changeImage(salle, index);
+  }
+  
+  // Sélectionner les éléments flèches
+  var arrowLeft = document.querySelectorAll(".arrow-left");
+  var arrowRight = document.querySelectorAll(".arrow-right");
+  
+  
+  // Ajouter des écouteurs d'événements pour appeler les fonctions au clic sur les flèches
+for (var i = 0; i < arrowLeft.length; i++) {
+    // Récupérer l'id de la salle correspondant à la flèche
+    var salle = arrowLeft[i].parentElement.querySelector(".img-fluid").dataset.salle;
+    // Créer une fonction anonyme qui va appeler la fonction previousImage avec l'id de la salle comme paramètre
+    arrowLeft[i].addEventListener("click", (function(salle) {
+      return function() {
+        previousImage(salle);
+      };
+    })(salle));
+  }
+  
+  for (var i = 0; i < arrowRight.length; i++) {
+    // Récupérer l'id de la salle correspondant à la flèche
+    var salle = arrowRight[i].parentElement.querySelector(".img-fluid").dataset.salle;
+    // Créer une fonction anonyme qui va appeler la fonction nextImage avec l'id de la salle comme paramètre
+    arrowRight[i].addEventListener("click", (function(salle) {
+      return function() {
+        nextImage(salle);
+      };
+    })(salle));
+  }
+  
+  
+
+
+ /* FIN PASSAGE DES IMAGES DANS LE CONTENEUR */
