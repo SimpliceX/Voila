@@ -140,6 +140,29 @@ strong {
 	color: #484a46;
 }
 
+.image-container {
+	position: relative; /* Permet de positionner les flèches gauche et droite par rapport au conteneur */
+}
+
+/* Style pour les flèches */
+.arrow-left, .arrow-right {
+	position: absolute; /* Permet de placer les flèches au-dessus de l'image */
+	top: 50%; /* Centre les flèches verticalement */
+	width: 50px; /* Largeur des flèches */
+	height: 50px; /* Hauteur des flèches */
+	cursor: pointer; /* Change le curseur en forme de main */
+  }
+  
+  /* Style pour la flèche gauche */
+  .arrow-left {
+	left: 10px; /* Décale la flèche de 10 pixels vers la gauche */
+  }
+  
+  /* Style pour la flèche droite */
+  .arrow-right {
+	right: 10px; /* Décale la flèche de 10 pixels vers la droite */
+  }
+
 .section-title {
 	color: #62388e;
 	font: 2em "Montserrat", sans-serif;
@@ -784,7 +807,7 @@ input[type='checkbox'] {
 /*    04. Header     */
 /*********************/
 .header {
-	background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.5)), url('../images/header-background.jpg') center center no-repeat;
+	background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.5)), url('../images/header-background-1.jpg') center center no-repeat;
 	background-size: cover;
 }
 
