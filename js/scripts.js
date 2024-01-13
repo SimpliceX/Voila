@@ -373,11 +373,11 @@ var salles = [
     },
     {
       id: "salle2",
-      images: ["images/Salle001.jpeg", "images/Salle002.jpeg", "images/Salle003.jpeg"]
+      images: ["images/Salle002.jpeg", "images/Salle001.jpeg", "images/Salle003.jpeg"]
     },
     {
       id: "salle3",
-      images: ["images/Salle001.jpeg", "images/Salle002.jpeg", "images/Salle003.jpeg"]
+      images: ["images/Salle003.jpeg", "images/Salle001.jpeg", "images/Salle002.jpeg"]
     },
     {
       id: "salle4",
@@ -385,11 +385,11 @@ var salles = [
     },
     {
       id: "salle5",
-      images: ["images/Salle001.jpeg", "images/Salle002.jpeg", "images/Salle003.jpeg"]
+      images: ["images/Salle002.jpeg", "images/Salle001.jpeg", "images/Salle003.jpeg"]
     },
     {
       id: "salle6",
-      images: ["images/Salle001.jpeg", "images/Salle002.jpeg", "images/Salle003.jpeg"]
+      images: ["images/Salle003.jpeg", "images/Salle001.jpeg", "images/Salle002.jpeg"]
     }
   ];
   
@@ -432,7 +432,7 @@ var salles = [
   var arrowLeft = document.querySelectorAll(".arrow-left");
   var arrowRight = document.querySelectorAll(".arrow-right");
   
-  
+
   // Ajouter des écouteurs d'événements pour appeler les fonctions au clic sur les flèches
 for (var i = 0; i < arrowLeft.length; i++) {
     // Récupérer l'id de la salle correspondant à la flèche
@@ -457,6 +457,5 @@ for (var i = 0; i < arrowLeft.length; i++) {
   }
   
   
-
 
  /* FIN PASSAGE DES IMAGES DANS LE CONTENEUR */
